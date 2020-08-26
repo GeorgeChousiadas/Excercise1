@@ -1,13 +1,19 @@
 package gr.codehub.ecomerce;
+
+import java.util.ArrayList;
 import java.util.Scanner;   //entry library for input from keyboard
+import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) {
 
-    //EXERCISES ON SIMPLE ALGORITHMS
-        System.out.printf("Give your number ");
         Scanner console = new Scanner(System.in);
+
+        ///////////////////////////////////////////////////////////////////
+        ////      EXERCISES ON SIMPLE ALGORITHMS  /////////////////////////
+        ///////////////////////////////////////////////////////////////////
+        System.out.printf("Give your number ");
         int number = console.nextInt();     //read the number from keyboard
 
         //Calculate the max value of an integer
@@ -36,8 +42,8 @@ public class Main {
 
         //Give a long number as input from the keyboard
         System.out.printf("Give a long number ");
-        Scanner console2 = new Scanner(System.in);
-        long longNumber = console2.nextLong(); //read the long from keyboard
+
+        long longNumber = console.nextLong(); //read the long from keyboard
 
         //Find the count of digits of the long integer given and print it
         CountDigits countdigits = new CountDigits();
@@ -46,17 +52,38 @@ public class Main {
 
         //Give a float number as input from the keyboard
         System.out.printf("Give a float number ");
-        Scanner console3 = new Scanner(System.in);
-        float floatNumber = console2.nextFloat();
+        float floatNumber = console.nextFloat();
 
         //Find the decimal part of the float number and print it
         String floatAsString = String.valueOf(floatNumber);
         int Decimal = floatAsString.indexOf(".");
         System.out.println("Decimal Part: " + floatAsString.substring(Decimal));
+        System.out.println(" ");
 
-    //EXERCISES ON SIMPLE ARRAYS
 
-        System.out.println("Decimal Part: " + floatAsString.substring(Decimal));
+        ///////////////////////////////////////////////////////////////////
+        ///////////    EXERCISES ON SIMPLE ARRAYS   ///////////////////////
+        ///////////////////////////////////////////////////////////////////
+
+        Scanner input = new Scanner(System.in);
+        List<Integer> list = new ArrayList<Integer>(); //Create an Array list
+
+        while (true){
+
+            System.out.println("Give an integer");
+            int new_number = console.nextInt();     //read integers from keyboard
+
+            list.add(new_number); //Put integers in the list
+            System.out.println("Continue y/n?"); //Continue y/n ?
+
+            if ( input.next().equalsIgnoreCase("n") )
+                break;
+
+
+        }
+        System.out.println("ArrayList : " + list.toString());
+
+
 
     }
 }
