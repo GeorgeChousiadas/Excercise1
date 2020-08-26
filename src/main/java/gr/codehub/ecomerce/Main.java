@@ -31,6 +31,22 @@ public class Main {
         //calculate the harmonic sum of the given number
         HarmonicSum harmonicsum = new HarmonicSum();
         System.out.println("The harmonic sum is: " + harmonicsum.calculateSum(number));
+        System.out.println(" ");
+
+        //Give a long number as input from the keyboard
+        System.out.printf("Give a long number ");
+        Scanner console2 = new Scanner(System.in);
+        long longNumber = console2.nextLong(); //read the long from keyboard
+
+        //Find the count of digits of the long integer given and print it
+        CountDigits countdigits = new CountDigits();
+        System.out.println("Number of digits: " + countdigits.numberOfDigits(longNumber));
+
+        //Give a float number as input from the keyboard
+        System.out.printf("Give a float number ");
+        Scanner console3 = new Scanner(System.in);
+        float floatNumber = console2.nextFloat();
+
 
     }
 }
