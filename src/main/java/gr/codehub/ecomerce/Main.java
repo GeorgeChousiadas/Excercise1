@@ -41,13 +41,17 @@ public class Main {
         //Find the count of digits of the long integer given and print it
         CountDigits countdigits = new CountDigits();
         System.out.println("Number of digits: " + countdigits.numberOfDigits(longNumber));
+        System.out.println(" ");
 
         //Give a float number as input from the keyboard
         System.out.printf("Give a float number ");
         Scanner console3 = new Scanner(System.in);
         float floatNumber = console2.nextFloat();
 
-
+        //Find the decimal part of the float number and print it
+        String floatAsString = String.valueOf(floatNumber);
+        int Decimal = floatAsString.indexOf(".");
+        System.out.println("Decimal Part: " + floatAsString.substring(Decimal));
     }
 }
 
