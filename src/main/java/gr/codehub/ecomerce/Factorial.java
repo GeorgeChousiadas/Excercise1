@@ -8,6 +8,7 @@ public class Factorial{
 
     // method to compute the factorial of a number
     public int computeFactorial(int x){
+
         int i,fact=1;
         for(i=1;i<=x;i++){
             fact=fact*i;

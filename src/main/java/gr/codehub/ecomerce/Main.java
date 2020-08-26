@@ -16,8 +16,7 @@ public class Main {
         //if number is valid, calculate the factorial
         if (number < max) {
             Factorial factorial = new Factorial();  //object of Factorial type
-            int result = factorial.computeFactorial(number);    //use method computeFactorial
-            System.out.printf("The factorial of the number is " + result);
+            System.out.printf("The factorial of the number is " + factorial.computeFactorial(number)); //use method computeFactorial
             System.out.printf("\n");
         }
         //if not valid
@@ -25,9 +24,13 @@ public class Main {
             System.out.println("Maximum value for a valid output is " + max);
         }
 
-        //find out if nubmer is prime or not
+        //find out if number is prime or not
         Prime prime = new Prime();
         boolean prOrNot = prime.primeOrNot(number);
+
+        //calculate the harmonic sum of the given number
+        HarmonicSum harmonicsum = new HarmonicSum();
+        System.out.println("The harmonic sum is: " + harmonicsum.calculateSum(number));
 
     }
 }
