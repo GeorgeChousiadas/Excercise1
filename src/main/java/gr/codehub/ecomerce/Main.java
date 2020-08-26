@@ -56,7 +56,7 @@ public class Main {
 
     //EXERCISES ON SIMPLE ARRAYS
 
-
+        System.out.println("Decimal Part: " + floatAsString.substring(Decimal));
 
     }
 }
