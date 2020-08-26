@@ -13,14 +13,22 @@ public class Main {
         MaxValue maxvalue = new MaxValue();
         int max = maxvalue.findMaxValue();
 
+        //if number is valid, calculate the factorial
         if (number < max) {
             Factorial factorial = new Factorial();  //object of Factorial type
             int result = factorial.computeFactorial(number);    //use method computeFactorial
             System.out.printf("The factorial of the number is " + result);
             System.out.printf("\n");
-        } else {
-            System.out.println("Maximum value of integer is " + max);
         }
+        //if not valid
+        else{
+            System.out.println("Maximum value for a valid output is " + max);
+        }
+
+        //find out if nubmer is prime or not
+        Prime prime = new Prime();
+        boolean prOrNot = prime.primeOrNot(number);
+
     }
 }
 

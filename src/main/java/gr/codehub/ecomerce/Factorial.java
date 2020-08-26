@@ -3,7 +3,7 @@ package gr.codehub.ecomerce;
 public class Factorial{
 
     // constructor
-    public Factorial() {
+    public Factorial(){
     }
 
     // method to compute the factorial of a number
