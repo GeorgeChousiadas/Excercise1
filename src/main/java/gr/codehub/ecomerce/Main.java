@@ -9,8 +9,18 @@ public class Main {
         Scanner console = new Scanner(System.in);
         int number = console.nextInt();     //read the number from keyboard
 
-        Factorial factorial = new Factorial();
-        int result = factorial.computeFactorial(number);
-        System.out.printf("The factorial of the number is " +result);
+        //Calculate the max value of an integer
+        MaxValue maxvalue = new MaxValue();
+        int max = maxvalue.findMaxValue();
+
+        if (number < max) {
+            Factorial factorial = new Factorial();  //object of Factorial type
+            int result = factorial.computeFactorial(number);    //use method computeFactorial
+            System.out.printf("The factorial of the number is " + result);
+            System.out.printf("\n");
+        } else {
+            System.out.println("Maximum value of integer is " + max);
+        }
     }
 }
+
