@@ -109,12 +109,13 @@ public class Main {
         // Read an integer from keyboard
         System.out.print("Give a number ");
         int newNumber = console.nextInt();
-
-        // Create object and use method orderDigits to sort them
         Descending_Order descending_order = new Descending_Order();
         descending_order.orderDigits(newNumber);
 
 
         }
+
+
+
 }
 
