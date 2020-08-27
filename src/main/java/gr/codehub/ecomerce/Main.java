@@ -24,12 +24,12 @@ public class Main {
         if(number>=0) {
             if (number < max) { //if number is valid, calculate the factorial
                 Factorial factorial = new Factorial();  //object of Factorial type
-                System.out.print("The factorial of the number is " + factorial.computeFactorial(number)); //use method computeFactorial
+                System.out.print("The factorial of the number is: " + factorial.computeFactorial(number)); //use method computeFactorial
                 System.out.println(" ");
             }
             //if not valid
             else {
-                System.out.println("Maximum value for a valid output is " + max);
+                System.out.println("Maximum value for a valid output is: " + max);
             }
         }else{
                 System.out.println("There is not factorial ");
@@ -70,32 +70,32 @@ public class Main {
         ///////////////////////////////////////////////////////////////////
 
         //Create an Array list
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
 
         System.out.println("Give your integer/s and press ok ");
         Scanner input = new Scanner(System.in);
 
-        int new_number = 0;
+        int new_number;
         while (input.hasNextInt()) {
             new_number = input.nextInt();
             list.add(new_number); //Put integers in the list
         }
 
         //Print the initial arraylist
-        System.out.println("ArrayList : " + list);
+        System.out.println("ArrayList: " + list);
 
         // Create the sub list and put only the prime numbers
-        List<Integer> sub_list = new ArrayList<Integer>();
+        List<Integer> sub_list = new ArrayList<>();
         int count;
         for(count=0; count<list.size(); count++) {
 
                 Prime primeNumber = new Prime();
-                if( primeNumber.primeOrNot(list.get(count)) == true ){
+                if(primeNumber.primeOrNot(list.get(count))){
                     sub_list.add(list.get(count));
             }
         }
         //Print the new sub list
-        System.out.println("SubList with prime numbers : " + sub_list);
+        System.out.println("SubList: " + sub_list);
 
 
 
