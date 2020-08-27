@@ -13,35 +13,39 @@ public class Main {
         ///////////////////////////////////////////////////////////////////
         ////      EXERCISES ON SIMPLE ALGORITHMS  /////////////////////////
         ///////////////////////////////////////////////////////////////////
-        System.out.printf("Give your number ");
+        System.out.print("Give your number ");
         int number = console.nextInt();     //read the number from keyboard
 
         //Calculate the max value of an integer
         MaxValue maxvalue = new MaxValue();
         int max = maxvalue.findMaxValue();
 
-        //if number is valid, calculate the factorial
-        if (number < max) {
-            Factorial factorial = new Factorial();  //object of Factorial type
-            System.out.printf("The factorial of the number is " + factorial.computeFactorial(number)); //use method computeFactorial
-            System.out.printf("\n");
+        //if number is positive
+        if(number>=0) {
+            if (number < max) { //if number is valid, calculate the factorial
+                Factorial factorial = new Factorial();  //object of Factorial type
+                System.out.print("The factorial of the number is " + factorial.computeFactorial(number)); //use method computeFactorial
+                System.out.println(" ");
+            }
+            //if not valid
+            else {
+                System.out.println("Maximum value for a valid output is " + max);
+            }
+        }else{
+                System.out.println("There is not factorial ");
         }
-        //if not valid
-        else{
-            System.out.println("Maximum value for a valid output is " + max);
-        }
-
         //find out if number is prime or not
         Prime prime = new Prime();
-        boolean prOrNot = prime.primeOrNot(number);
+        prime.primeOrNot(number);
 
         //calculate the harmonic sum of the given number
-        HarmonicSum harmonicsum = new HarmonicSum();
-        System.out.println("The harmonic sum is: " + harmonicsum.calculateSum(number));
-        System.out.println(" ");
-
+        if(number>0) {
+            HarmonicSum harmonicsum = new HarmonicSum();
+            System.out.println("The harmonic sum is: " + harmonicsum.calculateSum(number));
+            System.out.println(" ");
+        }
         //Give a long number as input from the keyboard
-        System.out.printf("Give a long number ");
+        System.out.print("Give a long number ");
 
         long longNumber = console.nextLong(); //read the long from keyboard
 
@@ -51,7 +55,7 @@ public class Main {
         System.out.println(" ");
 
         //Give a float number as input from the keyboard
-        System.out.printf("Give a float number ");
+        System.out.print("Give a float number ");
         float floatNumber = console.nextFloat();
 
         //Find the decimal part of the float number and print it
@@ -65,23 +69,34 @@ public class Main {
         ///////////    EXERCISES ON SIMPLE ARRAYS   ///////////////////////
         ///////////////////////////////////////////////////////////////////
 
+        //Create an Array list
+        List<Integer> list = new ArrayList<Integer>();
+
+        System.out.println("Give your integer/s and press ok ");
         Scanner input = new Scanner(System.in);
-        List<Integer> list = new ArrayList<Integer>(); //Create an Array list
 
-        while (true){
-
-            System.out.println("Give an integer");
-            int new_number = console.nextInt();     //read integers from keyboard
-
+        int new_number = 0;
+        while (input.hasNextInt()) {
+            new_number = input.nextInt();
             list.add(new_number); //Put integers in the list
-            System.out.println("Continue y/n?"); //Continue y/n ?
-
-            if ( input.next().equalsIgnoreCase("n") )
-                break;
-
-
         }
-        System.out.println("ArrayList : " + list.toString());
+
+        //Print the initial arraylist
+        System.out.println("ArrayList : " + list);
+
+        // Create the sub list and put only the prime numbers
+        List<Integer> sub_list = new ArrayList<Integer>();
+        int count;
+        for(count=0; count<list.size(); count++) {
+
+                Prime primeNumber = new Prime();
+                if( primeNumber.primeOrNot(list.get(count)) == true ){
+                    sub_list.add(list.get(count));
+            }
+        }
+        //Print the new sub list
+        System.out.println("SubList with prime numbers : " + sub_list);
+
 
 
 
