@@ -2,6 +2,8 @@ package gr.codehub.ecomerce;
 
 import java.util.ArrayList;
 import java.util.Scanner;   //entry library for input from keyboard
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.*;
 
 
@@ -82,7 +84,7 @@ public class Main {
         }
 
         //Print the initial arraylist
-        System.out.println("ArrayList: " + list);
+        System.out.println("List: " + list);
 
         // Create the sub list and put only the prime numbers
         List<Integer> sub_list = new ArrayList<>();
@@ -90,7 +92,7 @@ public class Main {
         for(count=0; count<list.size(); count++) {
 
                 Prime primeNumber = new Prime();
-                if(primeNumber.primeOrNot(list.get(count))){
+                if( primeNumber.primeOrNot(list.get(count)) ){
                     sub_list.add(list.get(count));
             }
         }
@@ -98,8 +100,21 @@ public class Main {
         System.out.println("SubList: " + sub_list);
 
 
+        // Create a set with name hashSet (set does not have duplicate elements)
+        Set<Integer> hashSet = new LinkedHashSet(list);
+        ArrayList<Integer> removeDuplicates = new ArrayList(hashSet);
+        System.out.println("Non-duplicated list: " + removeDuplicates);
+        System.out.println(" ");
+
+        // Read an integer from keyboard
+        System.out.print("Give a number ");
+        int newNumber = console.nextInt();
+
+        // Create object and use method orderDigits to sort them
+        Descending_Order descending_order = new Descending_Order();
+        descending_order.orderDigits(newNumber);
 
 
-    }
+        }
 }
 
