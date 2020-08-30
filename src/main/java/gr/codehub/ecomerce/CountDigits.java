@@ -1,5 +1,10 @@
 package gr.codehub.ecomerce;
 
+/**
+ * CountDigits take as input a long integer
+ * uses it's method numberOfDigits
+ * and returns the digits of it
+ */
 public class CountDigits {
 
     //constructor

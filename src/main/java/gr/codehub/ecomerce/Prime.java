@@ -1,14 +1,15 @@
 package gr.codehub.ecomerce;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Prime finds out if a number
+ * is prime or not and return
+ * true or false accordingly
+ */
 public class Prime {
 
-    //Constructor
+    //constructor
     public Prime(){
     }
-
 
     //method to find out if number is prime or not
     public boolean primeOrNot(int x){
@@ -20,7 +21,7 @@ public class Prime {
 
         boolean flag = true;
         for (int i = 2; i <= x/2; ++i){
-            // condition for non-prime number
+            //condition for non-prime number
             if(x % i == 0){
                 flag = false;
                 break;

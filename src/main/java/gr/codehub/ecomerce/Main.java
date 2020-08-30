@@ -6,19 +6,18 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.*;
 
-
 public class Main {
     public static void main(String[] args) {
 
-        Scanner console = new Scanner(System.in);
 
         ///////////////////////////////////////////////////////////////////
         ////      EXERCISES ON SIMPLE ALGORITHMS  /////////////////////////
         ///////////////////////////////////////////////////////////////////
         System.out.print("Give your number ");
+        Scanner console = new Scanner(System.in);
         int number = console.nextInt();     //read the number from keyboard
 
-        //Calculate the max value of an integer
+        //calculate the max value of an integer
         MaxValue maxvalue = new MaxValue();
         int max = maxvalue.findMaxValue();
 
@@ -38,15 +37,15 @@ public class Main {
         }
         //find out if number is prime or not
         Prime prime = new Prime();
-        prime.primeOrNot(number);
+        System.out.println("The number is prime? " +prime.primeOrNot(number));
 
-        //calculate the harmonic sum of the given number
+        //Calculate the harmonic sum of the given number
         if(number>0) {
             HarmonicSum harmonicsum = new HarmonicSum();
             System.out.println("The harmonic sum is: " + harmonicsum.calculateSum(number));
             System.out.println(" ");
         }
-        //Give a long number as input from the keyboard
+        //give a long number as input from the keyboard
         System.out.print("Give a long number ");
 
         long longNumber = console.nextLong(); //read the long from keyboard
@@ -56,11 +55,11 @@ public class Main {
         System.out.println("Number of digits: " + countdigits.numberOfDigits(longNumber));
         System.out.println(" ");
 
-        //Give a float number as input from the keyboard
+        //give a float number as input from the keyboard
         System.out.print("Give a float number ");
         float floatNumber = console.nextFloat();
 
-        //Find the decimal part of the float number and print it
+        //find the decimal part of the float number and print it
         String floatAsString = String.valueOf(floatNumber);
         int Decimal = floatAsString.indexOf(".");
         System.out.println("Decimal Part: " + floatAsString.substring(Decimal));
@@ -71,10 +70,10 @@ public class Main {
         ///////////    EXERCISES ON SIMPLE ARRAYS   ///////////////////////
         ///////////////////////////////////////////////////////////////////
 
-        //Create an Array list
+        //create an Array list
         List<Integer> list = new ArrayList<>();
 
-        System.out.println("Give your integer/s and press ok ");
+        System.out.println("Give your integer/s till you press a letter ");
         Scanner input = new Scanner(System.in);
 
         int new_number;
@@ -83,10 +82,10 @@ public class Main {
             list.add(new_number); //Put integers in the list
         }
 
-        //Print the initial arraylist
+        //print the initial arraylist
         System.out.println("List: " + list);
 
-        // Create the sub list and put only the prime numbers
+        //create the sub list and put only the prime numbers
         List<Integer> sub_list = new ArrayList<>();
         int count;
         for(count=0; count<list.size(); count++) {
@@ -96,26 +95,182 @@ public class Main {
                     sub_list.add(list.get(count));
             }
         }
-        //Print the new sub list
+        //print the new sub list
         System.out.println("SubList: " + sub_list);
 
 
-        // Create a set with name hashSet (set does not have duplicate elements)
+        //create a set with name hashSet (set does not have duplicate elements)
         Set<Integer> hashSet = new LinkedHashSet(list);
         ArrayList<Integer> removeDuplicates = new ArrayList(hashSet);
         System.out.println("Non-duplicated list: " + removeDuplicates);
         System.out.println(" ");
 
-        // Read an integer from keyboard
+        //read an integer from keyboard
         System.out.print("Give a number ");
         int newNumber = console.nextInt();
         Descending_Order descending_order = new Descending_Order();
         descending_order.orderDigits(newNumber);
 
 
+        //read a string from keyboard
+        System.out.print("Enter your string ");
+        Scanner myObj = new Scanner(System.in);
+        String userString = myObj.nextLine();
+
+        //create a stack object word
+        Stack word = new Stack();
+
+        //push characters from the string one by one in the stack
+        for(int i=0; i<userString.length(); i++) {
+            char c = userString.charAt(i);
+            word.push(c);
+        }
+
+        System.out.println("Your string is put in the stack successfully! ");
+
+        System.out.print("Your reverse string is: ");
+
+        for(int i=0; i<userString.length(); i++) {
+            System.out.print(word.pop());
+        }
+        System.out.println(" ");
+        System.out.println(" ");
+
+        //give a word from keyboard
+        System.out.print("Enter your word ");
+        Scanner myObj2 = new Scanner(System.in);
+        String userWord = myObj2.nextLine();
+
+        //create an object
+        Palindrome palindromeStr = new Palindrome();
+
+        //in this object apply the method to see if it is symmetric or not
+        if(palindromeStr.PalindromeFunction(userWord)){
+            System.out.println("The word is symmetric ");
+        }
+        else{
+            System.out.println("The word is not symmetric ");
+        }
+        System.out.println(" ");
+        ///////////////////////////////////////////////////////////////////
+        ///////////    STRING CLASS EXERCISE   ///////////////////////
+        ///////////////////////////////////////////////////////////////////
+
+        //give your password from keyboard
+        System.out.print("Enter your password ");
+        Scanner myObj3 = new Scanner(System.in);
+        String userPassword = myObj3.nextLine();
+
+
+        CheckPass check1 = new CheckPass();
+
+
+
+        //1 check if password has at least one uppercase
+        if (!check1.checkUpper(userPassword)) {
+            System.out.println("Your password must have at least one uppercase character ");
+        }
+
+        //2 check if password has at least one lowercase
+        if (!check1.checkLower(userPassword)) {
+            System.out.println("Your password must have at least one lowercase character ");
+        }
+
+        //3 check if password has at least one number
+        if(!check1.checkNumber(userPassword)){
+            System.out.println("Your password must have at least one number ");
+        }
+
+        //4 check if password has at least one special character
+        if(!check1.checkSpecial(userPassword)){
+           System.out.println("Your password must have at least one special character ");
+        }
+
+        //5 check if password has at least 8 characters
+        if(!check1.checkLength(userPassword)){
+            System.out.println("Your password must have at least 8 characters long ");
+        }
+
+        //6 check if password contains sequences
+        if(!check1.checkSequence(userPassword)){
+            System.out.println("Your password cannot contain a sequence of 3 characters ");
         }
 
 
 
+/*
+        //5 and 1,2/1,3/1,4/1,6/2,3/2,4/2,6/3,4/3,6/4,6
+        if( !check1.checkLength(userPassword)
+                &&    (!check1.checkUpper(userPassword) && !check1.checkLower(userPassword))
+                    || (!check1.checkUpper(userPassword) && !check1.checkNumber(userPassword))
+                    || (!check1.checkUpper(userPassword) && !check1.checkSpecial(userPassword))
+                    || (!check1.checkUpper(userPassword) && !check1.checkSequence(userPassword))
+
+                    || (!check1.checkLower(userPassword) && !check1.checkNumber(userPassword))
+                    || (!check1.checkLower(userPassword) && !check1.checkSpecial(userPassword))
+                    || (!check1.checkLower(userPassword) && !check1.checkSequence(userPassword))
+
+                    || (!check1.checkNumber(userPassword) && !check1.checkSpecial(userPassword))
+                    || (!check1.checkNumber(userPassword) && !check1.checkSequence(userPassword))
+
+                    || (!check1.checkSpecial(userPassword) && !check1.checkSequence(userPassword))
+
+        ){
+            //3,6 or 4,6
+            if( (!check1.checkNumber(userPassword) && !check1.checkSequence(userPassword) )
+                    || (!check1.checkSpecial(userPassword) && !check1.checkSequence(userPassword)) ){
+                System.out.println("Password OK ");
+            }
+            //5,6
+            else if( !check1.checkLength(userPassword) && !check1.checkSequence(userPassword) ) {
+                System.out.println("Strong password ");
+            }
+            //all criteria 1-6
+            else if ( !check1.checkUpper(userPassword) && !check1.checkLower(userPassword) &&
+                    !check1.checkNumber(userPassword) && !check1.checkSpecial(userPassword) &&
+                    !check1.checkLength(userPassword) && !check1.checkSequence(userPassword)
+            ){
+                System.out.println("Very Strong password ");
+            }
+
+        }else{
+            System.out.println("Invalid password ");
+            //1 check if password has at least one uppercase
+            if (!check1.checkUpper(userPassword)) {
+                System.out.println("Your password must have at least one uppercase character ");
+            }
+
+            //2 check if password has at least one lowercase
+            if (!check1.checkLower(userPassword)) {
+                System.out.println("Your password must have at least one lowercase character ");
+            }
+
+            //3 check if password has at least one number
+            if(!check1.checkNumber(userPassword)){
+                System.out.println("Your password must have at least one number ");
+            }
+
+            //4 check if password has at least one special character
+            if(!check1.checkSpecial(userPassword)){
+                System.out.println("Your password must have at least one special character ");
+            }
+
+            //5 check if password has at least 8 characters
+            if(!check1.checkLength(userPassword)){
+                System.out.println("Your password must have at least 8 characters long ");
+            }
+
+            //6 check if password contains sequences
+            if(!check1.checkSequence(userPassword)){
+                System.out.println("Your password cannot contain a sequence of 3 characters ");
+            }
+        }
+
+
+*/
+
+
+
+    }
 }
 

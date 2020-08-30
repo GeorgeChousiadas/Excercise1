@@ -1,5 +1,10 @@
 package gr.codehub.ecomerce;
 
+/**
+ * HarmonicSum calculates the harmonic
+ * of the sum : 1 + ½ + ⅓ + … + 1/n
+ * of a given number n
+ */
 public class HarmonicSum {
 
     //constructor

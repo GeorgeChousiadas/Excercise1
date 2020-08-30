@@ -1,12 +1,16 @@
 package gr.codehub.ecomerce;
 
+/**
+ * Factorial calculate the factorial n!
+ * of a given integer
+ */
 public class Factorial{
 
-    // constructor
+    //constructor
     public Factorial(){
     }
 
-    // method to compute the factorial of a number
+    //method to compute the factorial of a number
     public long computeFactorial(int x){
 
         long factorial = 1;
