@@ -164,7 +164,7 @@ public class Main {
 
         CheckPass check1 = new CheckPass();
 
-
+/*
 
         //1 check if password has at least one uppercase
         if (!check1.checkUpper(userPassword)) {
@@ -196,79 +196,65 @@ public class Main {
             System.out.println("Your password cannot contain a sequence of 3 characters ");
         }
 
-
-
-/*
-        //5 and 1,2/1,3/1,4/1,6/2,3/2,4/2,6/3,4/3,6/4,6
-        if( !check1.checkLength(userPassword)
-                &&    (!check1.checkUpper(userPassword) && !check1.checkLower(userPassword))
-                    || (!check1.checkUpper(userPassword) && !check1.checkNumber(userPassword))
-                    || (!check1.checkUpper(userPassword) && !check1.checkSpecial(userPassword))
-                    || (!check1.checkUpper(userPassword) && !check1.checkSequence(userPassword))
-
-                    || (!check1.checkLower(userPassword) && !check1.checkNumber(userPassword))
-                    || (!check1.checkLower(userPassword) && !check1.checkSpecial(userPassword))
-                    || (!check1.checkLower(userPassword) && !check1.checkSequence(userPassword))
-
-                    || (!check1.checkNumber(userPassword) && !check1.checkSpecial(userPassword))
-                    || (!check1.checkNumber(userPassword) && !check1.checkSequence(userPassword))
-
-                    || (!check1.checkSpecial(userPassword) && !check1.checkSequence(userPassword))
-
-        ){
-            //3,6 or 4,6
-            if( (!check1.checkNumber(userPassword) && !check1.checkSequence(userPassword) )
-                    || (!check1.checkSpecial(userPassword) && !check1.checkSequence(userPassword)) ){
-                System.out.println("Password OK ");
-            }
-            //5,6
-            else if( !check1.checkLength(userPassword) && !check1.checkSequence(userPassword) ) {
-                System.out.println("Strong password ");
-            }
-            //all criteria 1-6
-            else if ( !check1.checkUpper(userPassword) && !check1.checkLower(userPassword) &&
-                    !check1.checkNumber(userPassword) && !check1.checkSpecial(userPassword) &&
-                    !check1.checkLength(userPassword) && !check1.checkSequence(userPassword)
-            ){
-                System.out.println("Very Strong password ");
-            }
-
-        }else{
-            System.out.println("Invalid password ");
-            //1 check if password has at least one uppercase
-            if (!check1.checkUpper(userPassword)) {
-                System.out.println("Your password must have at least one uppercase character ");
-            }
-
-            //2 check if password has at least one lowercase
-            if (!check1.checkLower(userPassword)) {
-                System.out.println("Your password must have at least one lowercase character ");
-            }
-
-            //3 check if password has at least one number
-            if(!check1.checkNumber(userPassword)){
-                System.out.println("Your password must have at least one number ");
-            }
-
-            //4 check if password has at least one special character
-            if(!check1.checkSpecial(userPassword)){
-                System.out.println("Your password must have at least one special character ");
-            }
-
-            //5 check if password has at least 8 characters
-            if(!check1.checkLength(userPassword)){
-                System.out.println("Your password must have at least 8 characters long ");
-            }
-
-            //6 check if password contains sequences
-            if(!check1.checkSequence(userPassword)){
-                System.out.println("Your password cannot contain a sequence of 3 characters ");
-            }
-        }
-
-
 */
 
+        int counter=0;
+
+        if( !check1.checkLength(userPassword) ) {
+            System.out.println("Invalid password ");
+
+            if(!check1.checkUpper(userPassword))
+                System.out.println("Your password must have at least one uppercase character ");
+
+            if (!check1.checkLower(userPassword))
+                System.out.println("Your password must have at least one lowercase character ");
+
+            if (!check1.checkNumber(userPassword))
+                System.out.println("Your password must have at least one number ");
+
+            if(!check1.checkSpecial(userPassword))
+                System.out.println("Your password must have at least one special character ");
+
+            if(!check1.checkLength(userPassword))
+                System.out.println("Your password must have at least 8 characters long ");
+
+            if(!check1.checkSequence(userPassword))
+                System.out.println("Your password cannot contain a sequence of 3 characters ");
+
+        }
+        else{
+            counter = 1;
+            if(check1.checkUpper(userPassword))
+                counter++;
+
+            if (check1.checkLower(userPassword))
+                counter++;
+
+            if (check1.checkNumber(userPassword))
+                counter++;
+
+            if(check1.checkSpecial(userPassword))
+                counter++;
+
+            if(check1.checkSequence(userPassword))
+                counter++;
+
+            switch(counter){
+                case 6:
+                    System.out.println("Very Strong password ");
+                    break;
+                case 5:
+                    System.out.println("Strong password ");
+                    break;
+                case 4:
+                    System.out.println("Password OK ");
+                    break;
+                case 3:
+                    System.out.println("Password OK ");
+                    break;
+
+            }
+        }
 
 
     }
